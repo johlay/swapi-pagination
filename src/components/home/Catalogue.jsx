@@ -1,7 +1,8 @@
 import { makeStyles } from "@material-ui/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { APIContext } from "../../contexts/APIContext";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 /* Material-UI */
 const useStyles = makeStyles({
@@ -10,14 +11,30 @@ const useStyles = makeStyles({
   },
 });
 
+/* URL */
+const url = "https://swapi.dev/api/";
+
 const Catalogue = () => {
   /* Styles */
   const classes = useStyles();
 
+  const [newTitle, setNewTitle] = useState("");
+  useDocumentTitle(newTitle);
+
   /* Context */
   const { setCurrentPage, setEndpoint } = useContext(APIContext);
 
-  const url = "https://swapi.dev/api";
+  /* Handler */
+  const handleCatalogue = (newEndpoint) => {
+    // Reset page to "1".
+    setCurrentPage(1);
+
+    // New endpoint.
+    setEndpoint(url + newEndpoint);
+
+    // Set new page title.
+    setNewTitle(newEndpoint);
+  };
 
   return (
     <>
@@ -29,40 +46,35 @@ const Catalogue = () => {
       <Grid container item direction="row" justifyContent="center">
         <Button
           onClick={() => {
-            setCurrentPage(1);
-            setEndpoint(`${url}/people`);
+            handleCatalogue("people");
           }}
         >
           People
         </Button>
         <Button
           onClick={() => {
-            setCurrentPage(1);
-            setEndpoint(`${url}/vehicles`);
+            handleCatalogue("vehicles");
           }}
         >
           Vehicles
         </Button>
         <Button
           onClick={() => {
-            setCurrentPage(1);
-            setEndpoint(`${url}/starships`);
+            handleCatalogue("starships");
           }}
         >
           Starships
         </Button>
         <Button
           onClick={() => {
-            setCurrentPage(1);
-            setEndpoint(`${url}/species`);
+            handleCatalogue("species");
           }}
         >
           Species
         </Button>
         <Button
           onClick={() => {
-            setCurrentPage(1);
-            setEndpoint(`${url}/planets`);
+            handleCatalogue("planets");
           }}
         >
           Planets
