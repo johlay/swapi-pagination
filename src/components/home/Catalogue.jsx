@@ -18,8 +18,7 @@ const Catalogue = () => {
   /* Styles */
   const classes = useStyles();
 
-  const [newTitle, setNewTitle] = useState("");
-  useDocumentTitle(newTitle);
+  const [title, setTitle] = useDocumentTitle("");
 
   /* Context */
   const { setCurrentPage, setEndpoint } = useContext(APIContext);
@@ -33,7 +32,7 @@ const Catalogue = () => {
     setEndpoint(url + newEndpoint);
 
     // Set new page title.
-    setNewTitle(newEndpoint);
+    setTitle(newEndpoint);
   };
 
   return (
