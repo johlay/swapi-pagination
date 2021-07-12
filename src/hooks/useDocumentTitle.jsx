@@ -6,7 +6,7 @@ const useDocumentTitle = (newTitle) => {
   const [title, setTitle] = useState(newTitle);
 
   useEffect(() => {
-    if (title === undefined) return;
+    if (!title) return;
 
     if (initialTitle && title) document.title = `${initialTitle} - ${title}`;
   }, [title]);
