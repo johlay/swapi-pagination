@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 import { Button, Grid, Typography } from "@material-ui/core";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { APIContext } from "../../contexts/APIContext";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 
