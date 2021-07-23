@@ -18,7 +18,7 @@ const Catalogue = () => {
   /* Styles */
   const classes = useStyles();
 
-  const [title, setTitle] = useDocumentTitle("");
+  const [title, setTitle] = useDocumentTitle();
 
   /* Context */
   const { setCurrentPage, setEndpoint } = useContext(APIContext);

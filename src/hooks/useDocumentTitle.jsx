@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 const initialTitle = document.title;
 
-const useDocumentTitle = (newTitle) => {
-  const [title, setTitle] = useState(newTitle);
+const useDocumentTitle = () => {
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     if (!title) return;
